@@ -2,6 +2,7 @@
 members = [
     "pmdk-pool",
     "pmdk-util",
+    "pmem",
     "pmem-sys",
     "pmemblk-sys",
     "pmemlog-sys",

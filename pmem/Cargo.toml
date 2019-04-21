@@ -1,0 +1,14 @@
+[package]
+name = "pmem"
+version = "0.1.0"
+authors = ["Zhiting Zhu <zhitingz@cs.utexas.edu>"]
+edition = "2018"
+
+[dependencies]
+errno = "0.2"
+libc = "0.2"
+rust-extra = "0.0.10"
+syscall-alt = "0.0.12"
+bitflags = "1.0"
+pmdk-util = { path = "../pmdk-util" }
+pmem-sys = { path = "../pmem-sys" }
