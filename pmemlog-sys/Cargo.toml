@@ -10,7 +10,8 @@ build = "build.rs"
 links = "pmemlog"
 
 [dependencies]
+libc = "0.2"
 
 [build-dependencies]
-bindgen = "0.44"
+bindgen = "0.49"
 pmdk-builder = { path = "../pmdk-builder" }
