@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "pmdk-pool",
+    "pmdk-util",
     "pmem-sys",
     "pmemblk-sys",
     "pmemlog-sys",

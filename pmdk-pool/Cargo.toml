@@ -1,0 +1,18 @@
+[package]
+name = "pmdk-pool"
+version = "0.1.0"
+authors = ["Zhiting Zhu <zhitingz@cs.utexas.edu>"]
+edition = "2018"
+
+[dependencies]
+errno = "0.2"
+libc = "0.2"
+rust-extra = "0.0.10"
+serde = "1.0"
+serde_derive = "1.0"
+syscall-alt = "0.0.12"
+quick-error = "1.2.0"
+pmemblk-sys = { path = "../pmemblk-sys" }
+pmemlog-sys = { path = "../pmemlog-sys" }
+pmemobj-sys = { path = "../pmemobj-sys" }
+pmdk-util = { path = "../pmdk-util" }
