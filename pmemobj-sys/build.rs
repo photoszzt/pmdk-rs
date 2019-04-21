@@ -21,6 +21,9 @@ fn generate_bindings() -> bindgen::Bindings {
     bindgen::Builder::default()
         .header("libpmemobj.h")
         .blacklist_type("max_align_t")
+        .derive_default(true)
+        .derive_hash(true)
+        .derive_debug(true)
         .generate()
         .expect("Unable to generate bindings")
 }

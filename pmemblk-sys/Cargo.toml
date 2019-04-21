@@ -10,6 +10,7 @@ build = "build.rs"
 links = "pmemblk"
 
 [dependencies]
+libc = "0.2"
 
 [build-dependencies]
 bindgen = "0.49"
