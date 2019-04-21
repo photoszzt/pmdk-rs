@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/rleungx/pmdk-rs.svg?branch=master)](https://travis-ci.org/rleungx/pmdk-rs)
 [![Build status](https://ci.appveyor.com/api/projects/status/9yg194tyy7ccfhrg/branch/master?svg=true)](https://ci.appveyor.com/project/rleungx/pmdk-rs/branch/master)
 
+This fork version combinded some code from the lemonrock's [nvml](https://github.com/lemonrock/nvml).
 Rust API wrapping the Persistent Memory Development Kit library.
 
 ## Building
