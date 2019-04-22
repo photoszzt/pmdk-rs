@@ -95,15 +95,12 @@ impl c_voidExt for *const c_void {
         if likely(result == 0) {
             return;
         } else if likely(result == -1) {
-            match errno().0
-			{
-				ENOMEM => panic!("Address range and length is not fully-backed by either persistent memory or a memory-mapped file"),
-
-				EBUSY => panic!("EBUSY should be impossible for pmem_sync()"),
-				EINVAL => panic!("EINVAL should be impossible for pmem_sync()"),
-
-				illegal @ _ => panic!("Error number '{}' should not occur for pmem_sync()", illegal),
-			}
+            match errno().0 {
+                ENOMEM => panic!("Address range and length is not fully-backed by either persistent memory or a memory-mapped file"),
+                EBUSY => panic!("EBUSY should be impossible for pmem_sync()"),
+                EINVAL => panic!("EINVAL should be impossible for pmem_sync()"),
+                illegal @ _ => panic!("Error number '{}' should not occur for pmem_sync()", illegal),
+            }
         } else {
             panic!("pmem_msync() returned value '{}', not 0 or -1", result);
         }
