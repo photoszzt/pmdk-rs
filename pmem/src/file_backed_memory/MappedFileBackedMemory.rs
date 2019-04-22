@@ -104,9 +104,9 @@ impl<'memory> FileBackedMemory<'memory> for MappedFileBackedMemory {
     #[inline(always)]
     fn _open_flags(exclusive: bool) -> FileBackedMemoryOpenFlags {
         if exclusive {
-            FileBackedMemoryOpenFlags::Exclusive
+            FileBackedMemoryOpenFlags::EXCLUSIVE
         } else {
-            FileBackedMemoryOpenFlags::None
+            FileBackedMemoryOpenFlags::NONE
         }
     }
 
@@ -145,18 +145,18 @@ impl MappedFileBackedMemory {
     ) -> Result<Option<Self>, PmdkError> {
         assert_ne!(length, 0, "length can not be zero when creating");
 
-        let mut flags = FileBackedMemoryOpenFlags::Create;
+        let mut flags = FileBackedMemoryOpenFlags::CREATE;
 
         if sparse {
-            flags |= FileBackedMemoryOpenFlags::Sparse;
+            flags |= FileBackedMemoryOpenFlags::SPARSE;
         }
 
         if temporary_file {
-            flags |= FileBackedMemoryOpenFlags::TmpFile;
+            flags |= FileBackedMemoryOpenFlags::TMP_FILE;
         }
 
         if exclusive {
-            flags |= FileBackedMemoryOpenFlags::Exclusive;
+            flags |= FileBackedMemoryOpenFlags::EXCLUSIVE;
         }
 
         Self::_map(persistent_memory_file_path, length, flags, mode)

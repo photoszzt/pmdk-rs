@@ -101,7 +101,7 @@ impl<'memory> FileBackedMemory<'memory> for DirectlyAccessibleFileBackedMemory {
     #[doc(hidden)]
     #[inline(always)]
     fn _open_flags(_exclusive: bool) -> FileBackedMemoryOpenFlags {
-        FileBackedMemoryOpenFlags::None
+        FileBackedMemoryOpenFlags::NONE
     }
 
     #[doc(hidden)]

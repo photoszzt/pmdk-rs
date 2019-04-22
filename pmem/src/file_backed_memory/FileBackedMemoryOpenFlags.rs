@@ -7,18 +7,18 @@ bitflags! {
     pub struct FileBackedMemoryOpenFlags: i32
     {
         /// No flags
-        const None = 0;
+        const NONE = 0;
 
         /// Create.
-        const Create = PMEM_FILE_CREATE as i32;
+        const CREATE = PMEM_FILE_CREATE as i32;
 
         /// Only allow this process access to the memory.
-        const Exclusive = PMEM_FILE_EXCL as i32;
+        const EXCLUSIVE = PMEM_FILE_EXCL as i32;
 
         /// Allow sparse mappings (ie large area of zero bytes are not actually mapped).
-        const Sparse = PMEM_FILE_SPARSE as i32;
+        const SPARSE = PMEM_FILE_SPARSE as i32;
 
         /// Use a temporary file mapping.
-        const TmpFile = PMEM_FILE_TMPFILE as i32;
+        const TMP_FILE = PMEM_FILE_TMPFILE as i32;
     }
 }
