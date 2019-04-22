@@ -4,13 +4,13 @@ extern crate errno;
 #[macro_use]
 extern crate pmdk_util;
 extern crate pmem_sys;
-extern crate syscall_alt;
 #[macro_use]
 extern crate bitflags;
 
 use self::file_backed_memory::*;
 use errno::errno;
 use libc::{c_char, c_void, mode_t};
+use libc::{EBUSY, EINVAL, ENOMEM};
 use pmdk_util::errors::PmdkError;
 use pmdk_util::is_not_null::IsNotNull;
 use pmem_sys::*;
@@ -21,7 +21,6 @@ use std::mem::uninitialized;
 use std::path::Path;
 use std::ptr::{copy, copy_nonoverlapping, write_bytes};
 use std::sync::Arc;
-use syscall_alt::constants::E::{EBUSY, EINVAL, ENOMEM};
 
 /// Different kinds of file-backed persistent memory.
 pub mod file_backed_memory;

@@ -2,7 +2,7 @@
 // Copyright © 2017 The developers of dpdk. See the COPYRIGHT file in the top-level directory of this distribution and at https://raw.githubusercontent.com/lemonrock/dpdk/master/COPYRIGHT.
 use crate::configuration;
 use errno::errno;
-use libc::{c_char, c_longlong, c_void, mode_t, size_t};
+use libc::{c_char, c_longlong, c_void, mode_t, size_t, EIO};
 use pmdk_util::errors::PmdkError;
 use pmdk_util::is_not_null::IsNotNull;
 use pmemblk_sys::*;
@@ -13,7 +13,6 @@ use std::collections::HashMap;
 use std::os::unix::ffi::OsStrExt;
 use std::path::Path;
 use std::sync::Arc;
-use syscall_alt::constants::E;
 
 include!("BlockPool.rs");
 include!("BlockPoolConfiguration.rs");

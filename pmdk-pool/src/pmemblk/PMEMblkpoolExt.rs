@@ -91,7 +91,7 @@ impl PMEMblkpoolExt for *mut PMEMblkpool {
             );
         } else {
             let os_error_number = errno().0;
-            if likely(os_error_number == E::EIO) {
+            if likely(os_error_number == EIO) {
                 false
             } else {
                 PmdkError::block_panic("pmemblk_read")

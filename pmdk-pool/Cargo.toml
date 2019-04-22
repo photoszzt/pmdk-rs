@@ -10,7 +10,6 @@ libc = "0.2"
 rust-extra = "0.0.10"
 serde = "1.0"
 serde_derive = "1.0"
-syscall-alt = "0.0.12"
 quick-error = "1.2.0"
 pmemblk-sys = { path = "../pmemblk-sys" }
 pmemlog-sys = { path = "../pmemlog-sys" }

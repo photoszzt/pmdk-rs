@@ -11,6 +11,7 @@ use self::AppendError::*;
 use crate::configuration;
 use errno::errno;
 use libc::{c_char, c_int, c_void, mode_t, size_t};
+use libc::{EDEADLK, EINVAL, ENOSPC, EROFS};
 use pmdk_util::errors::PmdkError;
 use pmdk_util::is_not_null::IsNotNull;
 use pmemlog_sys::*;
@@ -20,7 +21,6 @@ use std::collections::HashMap;
 use std::os::unix::ffi::OsStrExt;
 use std::path::Path;
 use std::sync::Arc;
-use syscall_alt::constants::E::{EDEADLK, EINVAL, ENOSPC, EROFS};
 
 include!("AppendError.rs");
 include!("ForEachChunkCallback.rs");

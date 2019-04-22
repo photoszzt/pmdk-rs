@@ -3,7 +3,10 @@
 
 use crate::configuration;
 use errno::{errno, set_errno, Errno};
-use libc::{c_char, c_int, c_longlong, c_void, mode_t, size_t};
+use libc::{
+    c_char, c_int, c_longlong, c_void, mode_t, size_t, EAGAIN, EBUSY, ECANCELED, EDEADLK, EINVAL,
+    ENOTRECOVERABLE, EOWNERDEAD, EPERM, ETIMEDOUT,
+};
 use pmdk_util::errors::PmdkError;
 use pmdk_util::is_not_null::IsNotNull;
 use pmemobj_sys::*;
@@ -24,10 +27,6 @@ use std::panic::{catch_unwind, resume_unwind, AssertUnwindSafe};
 use std::path::Path;
 use std::ptr::{null, null_mut};
 use std::sync::Arc;
-use syscall_alt::constants::E;
-use syscall_alt::constants::E::{
-    EAGAIN, EBUSY, ECANCELED, EDEADLK, EINVAL, ENOTRECOVERABLE, EOWNERDEAD, EPERM, ETIMEDOUT,
-};
 
 include!("ConditionVariable.rs");
 include!("ConditionVariableMutexLockablePersistable.rs");

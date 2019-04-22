@@ -3,6 +3,7 @@
 
 use errno::errno;
 use libc::c_char;
+use libc::{EINVAL, ENOMEM};
 use pmem_sys::pmem_errormsg;
 use pmemblk_sys::pmemblk_errormsg;
 use pmemlog_sys::pmemlog_errormsg;
@@ -12,7 +13,6 @@ use std::error;
 use std::ffi::{CStr, CString};
 use std::fmt;
 use std::fmt::{Display, Formatter};
-use syscall_alt::constants::E::{EINVAL, ENOMEM};
 
 include!("ErrorFunction.rs");
 include!("PmdkError.rs");
