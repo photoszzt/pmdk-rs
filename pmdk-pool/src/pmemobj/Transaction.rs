@@ -101,18 +101,11 @@ impl Transaction {
 
     pub fn commit() -> Result<(), TxError> {
         unsafe {
-            if (pmemobj_tx_stage() != pobj_tx_stage_TX_STAGE_WORK) {
+            if pmemobj_tx_stage() != pobj_tx_stage_TX_STAGE_WORK {
                 return Err(TxError::WrongStage);
             }
             pmemobj_tx_commit();
         }
         Ok(())
-    }
-}
-
-#[inline(always)]
-fn set_error_number_if_necessary(os_error_number: c_int) {
-    if unlikely(os_error_number != 0) {
-        set_errno(Errno(os_error_number));
     }
 }

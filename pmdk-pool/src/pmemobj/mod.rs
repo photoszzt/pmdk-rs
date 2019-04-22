@@ -2,7 +2,7 @@
 // Copyright © 2017 The developers of dpdk. See the COPYRIGHT file in the top-level directory of this distribution and at https://raw.githubusercontent.com/lemonrock/dpdk/master/COPYRIGHT.
 
 use crate::configuration;
-use errno::{errno, set_errno, Errno};
+use errno::errno;
 use libc::{
     c_char, c_int, c_longlong, c_void, mode_t, size_t, EAGAIN, EBUSY, ECANCELED, EDEADLK, EINVAL,
     ENOTRECOVERABLE, EOWNERDEAD, EPERM, ETIMEDOUT,
@@ -19,7 +19,7 @@ use std::fmt;
 use std::fmt::{Debug, Display, Formatter};
 use std::hash::{Hash, Hasher};
 use std::marker::PhantomData;
-use std::mem::{replace, size_of, uninitialized, zeroed};
+use std::mem::{replace, size_of, uninitialized};
 use std::ops::{Deref, DerefMut};
 #[cfg(unix)]
 use std::os::unix::ffi::OsStrExt;
