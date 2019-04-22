@@ -82,17 +82,14 @@ impl PMEMlogpoolExt for *mut PMEMlogpool {
                 result
             );
         } else {
-            match errno().0
-			{
-				ENOSPC => Err(OutOfSpace),
-				EROFS => Err(ReadOnly),
-
-				// From pthread_rwlock_wrlock
-				EINVAL => panic!("pmemlog_append() pthread_rwlock_wrlock() EINVAL (The value specified by rwlock does not refer to an initialized read-write lock object)"),
-				EDEADLK => panic!("pmemlog_append() pthread_rwlock_wrlock() EDEADLK (The current thread already owns the read-write lock for writing or reading)"),
-
-				unexpected @ _ => panic!("Unexpected error number '{}'", unexpected),
-			}
+            match errno().0 {
+                ENOSPC => Err(OutOfSpace),
+                EROFS => Err(ReadOnly),
+                // From pthread_rwlock_wrlock
+                EINVAL => panic!("pmemlog_append() pthread_rwlock_wrlock() EINVAL (The value specified by rwlock does not refer to an initialized read-write lock object)"),
+                EDEADLK => panic!("pmemlog_append() pthread_rwlock_wrlock() EDEADLK (The current thread already owns the read-write lock for writing or reading)"),
+                unexpected @ _ => panic!("Unexpected error number '{}'", unexpected),
+            }
         }
     }
 
@@ -116,17 +113,14 @@ impl PMEMlogpoolExt for *mut PMEMlogpool {
                 result
             );
         } else {
-            match errno().0
-			{
-				ENOSPC => Err(OutOfSpace),
-				EROFS => Err(ReadOnly),
-
-				// From pthread_rwlock_wrlock
-				EINVAL => panic!("pmemlog_appendv() pthread_rwlock_wrlock() EINVAL (The value specified by rwlock does not refer to an initialized read-write lock object)"),
-				EDEADLK => panic!("pmemlog_appendv() pthread_rwlock_wrlock() EDEADLK (The current thread already owns the read-write lock for writing or reading)"),
-
-				unexpected @ _ => panic!("Unexpected error number '{}'", unexpected),
-			}
+            match errno().0 {
+                ENOSPC => Err(OutOfSpace),
+                EROFS => Err(ReadOnly),
+                // From pthread_rwlock_wrlock
+                EINVAL => panic!("pmemlog_appendv() pthread_rwlock_wrlock() EINVAL (The value specified by rwlock does not refer to an initialized read-write lock object)"),
+                EDEADLK => panic!("pmemlog_appendv() pthread_rwlock_wrlock() EDEADLK (The current thread already owns the read-write lock for writing or reading)"),
+                unexpected @ _ => panic!("Unexpected error number '{}'", unexpected),
+            }
         }
     }
 
